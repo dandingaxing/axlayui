@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="csrf-token" content="xxxxxx_csrf_xxxxxxxxxxxxxxxxxx">
+    <title>总后台 - 管理后台</title>
+    <link rel="stylesheet" href="/manageui/layui/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/manageui/layui/layuiadmin/layui/css/admin.css" media="all">
+</head>
+<body class="layui-layout-body">
+
+<div id="LAY_app">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <!-- 头部区域 -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item layadmin-flexible" lay-unselect>
+                    <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+                        <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="javascript:;" layadmin-event="refresh" title="刷新">
+                        <i class="layui-icon layui-icon-refresh-3"></i>
+                        刷新
+                    </a>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+
+
+
+
+
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a href="javascript:;" layadmin-event="fullscreen">
+                        <i class="layui-icon layui-icon-screen-full"></i>
+                    </a>
+                </li>
+                <li class="layui-nav-item" style="margin-right: 20px;" lay-unselect>
+                    <a href="javascript:;">
+                        <cite>阿星</cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a lay-href="#">基本资料</a></dd>
+                        <dd><a lay-href="#">修改密码</a></dd>
+                        <hr>
+                        <dd style="text-align: center;"><a href="#">退出</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 侧边菜单 -->
+        <div class="layui-side layui-side-menu">
+            <div class="layui-side-scroll">
+                <div class="layui-logo" lay-href="/">
+                    <span>XX站 - 管理后台</span>
+                </div>
+
+                <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- 页面标签 -->
+        <div class="layadmin-pagetabs" id="LAY_app_tabs">
+            <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                    <li class="layui-nav-item" lay-unselect>
+                        <a href="javascript:;"></a>
+                        <dl class="layui-nav-child layui-anim-fadein">
+                            <dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
+                            <dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+                            <dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
+                <ul class="layui-tab-title" id="LAY_app_tabsheader">
+                    <li lay-id="/" lay-attr="/" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- 主体内容 -->
+        <div class="layui-body" id="LAY_app_body">
+            <div class="layadmin-tabsbody-item layui-show">
+                <!-- 第一个主体页面 -->
+                <iframe src="/xxxx/xxxxx/home.html" frameborder="0" class="layadmin-iframe"></iframe>
+            </div>
+        </div>
+
+        <!-- 辅助元素，一般用于移动设备下遮罩 -->
+        <div class="layadmin-body-shade" layadmin-event="shade"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/manageui/layui/layuiadmin/layui/jquery.min.js"></script>
+<script type="text/javascript" src="/manageui/layui/layuiadmin/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.config({
+        base: '/manageui/layui/layuiadmin/layui/' //静态资源所在路径
+    });
+</script>
+<script type="text/javascript">
+    // 权限 JSON 输出
+    var _authNode = '[{"name":"订单管理","href":"订单管理","icon":"layui-icon-senior","children":{"8":{"name":"财务管理","href":"/xxx/xxx/xxx.html"},"11":{"name":"订单列表","href":"/xxx/xxx/xxx.html"}}},{"name":"用户管理","href":"用户管理","icon":"layui-icon-user","children":{"4":{"name":"用户列表","href":"/xxx/xxx/xxx.html"},"12":{"name":"添加用户","href":"/xxx/xxx/xxx.html"}}},{"name":"权限管理","href":"权限管理","icon":"layui-icon-set","children":{"1":{"name":"后台用户列表","href":"/xxx/xxx/xxx.html"},"2":{"name":"模块列表","href":"/xxx/xxx/xxx.html"},"3":{"name":"增加模块","href":"/xxx/xxx/xxx.html"},"5":{"name":"角色列表","href":"/xxx/xxx/xxx.html"},"6":{"name":"增加角色","href":"/xxx/xxx/xxx.html"},"7":{"name":"密码重置","href":"/xxx/xxx/xxx.html"}}}]';
+    _authNode = jQuery.parseJSON(_authNode);
+
+    // console.log(_authNode);
+    setNodeMenu(_authNode, 'LAY-system-side-menu');
+
+    // 设置左侧权限节点
+    function setNodeMenu(authNode, menuUlId){
+        menu = $('#'+menuUlId);
+        var j = 0;
+        for ( parendId in authNode ) {
+            if ( j == 0 ) {
+                nowStr = '<li data-name="'+authNode[parendId]['name']+'" class="layui-nav-item layui-nav-itemed">';
+            }else{
+                nowStr = '<li data-name="'+authNode[parendId]['name']+'" class="layui-nav-item">';
+            }
+            nowStr += '    <a href="javascript:;" lay-tips="'+authNode[parendId]['name']+'" lay-direction="2">';
+            nowStr += '        <i class="layui-icon '+authNode[parendId]['icon']+'"></i>';
+            nowStr += '        <cite>'+authNode[parendId]['name']+'</cite>';
+            nowStr += '    </a>';
+            nowStr += '    <dl class="layui-nav-child">';
+            for ( child in authNode[parendId]['children'] ) {
+                if ( j==0 ) {
+                    nowStr += '        <dd data-name="'+child+'">';
+                }else{
+                    nowStr += '        <dd data-name="'+child+'">';
+                }
+                nowStr += '            <a lay-href="'+authNode[parendId]['children'][child]['href']+'">'+authNode[parendId]['children'][child]['name']+'</a>';
+                nowStr += '        </dd>';
+                j++;
+            }
+            nowStr += '   </dl>';
+            nowStr += '</li>';
+            menu.append(nowStr);
+        }
+    }
+
+</script>
+
+<script>
+    layui.config({
+        base: '/manageui/layui/layuiadmin/layui/' //静态资源所在路径
+    }).extend({
+        index: 'Library/index' //主入口模块
+    }).use('index');
+</script>
+
+</body>
+</html>
